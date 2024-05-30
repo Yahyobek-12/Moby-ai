@@ -54,8 +54,9 @@ const Home = () => {
             </button>
           </div>
           <button
-            className='mt-2 bg-gradient-to-tr from-purple-400 to-purple-500 py-2 px-4 rounded-md font-bold text-white hover:opacity-80'
+            className={`mt-2 py-2 px-4 rounded-md font-bold text-white ${image ? 'bg-gradient-to-tr from-purple-400 to-purple-500 hover:opacity-80' : 'bg-gray-400 cursor-not-allowed'}`}
             onClick={ImgText}
+            disabled={!image}
           >
             Img To Text
           </button>
@@ -70,13 +71,14 @@ const Home = () => {
         ) : (
           text && (
             <div className={toggle ? 'hidden' : 'block'}>
-              <div className='selected-div w-full h-screen absolute top-0 left-0 flex items-center justify-center px-2'>
-                <CiCircleRemove onClick={toggleDiv} className='text-5xl py-2 px-2 text-white absolute top-[10px] right-[10px] cursor-pointer bg-red-500 rounded-md hover:opacity-80' />
+              <div className='selected-div w-full h-screen absolute top-0 left-0 flex items-center justify-center'>
+                <CiCircleRemove onClick={toggleDiv} className='text-5xl py-2 px-2 text-white absolute top-[10px] right-[10px] cursor-pointer bg-purple-500 rounded-md hover:opacity-80' />
                 <div>
-                  <h1 className='text-white font-bold text-2xl'>{text.slice(0, 50)}...</h1>
+                  <h1 className='text-white font-bold text-3xl'>{text.slice(0, 50)}...</h1>
                   <button
                     className='py-2 px-4 bg-purple-500 mt-5 text-white font-bold rounded-md hover:opacity-80'
-                    onClick={copyTextToClipboard}>
+                    onClick={copyTextToClipboard}
+                  >
                     Copy Text
                   </button>
                 </div>
