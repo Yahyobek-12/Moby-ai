@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: .2s;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to bottom, #000002, #271247);
+}
+
+.modal {
+  background: #0001;
+  backdrop-filter: blur(20px);
+}
+
+.selected-div {
+  background: #0001;
+  backdrop-filter: blur(20px);
+}
+
+.selected {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 5px solid #A855F7;
+  animation: selected 5s linear infinite;
+}
+
+@keyframes selected {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(360deg);
+  }
+}
