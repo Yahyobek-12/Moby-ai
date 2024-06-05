@@ -26,22 +26,25 @@ body {
 .selected {
   width: 180px;
   height: 180px;
+  object-fit: cover;
   border-radius: 50%;
   border: 5px solid #A855F7;
-  animation: selected 5s linear infinite;
+  animation: selected 3s linear infinite;
 }
 
 @keyframes selected {
   0% {
     opacity: 0;
+    transform: translateY(-10%);
   }
 
   50% {
     opacity: 1;
+    transform: translateY(10%);
   }
 
   100% {
     opacity: 0;
-    transform: rotate(360deg);
+    transform: translateY(-10%);
   }
 }

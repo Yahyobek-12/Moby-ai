@@ -10,10 +10,6 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [toggle, setToggle] = useState(false);
 
-  const toggleDiv = () => {
-    setToggle(!toggle);
-  };
-
   const imgUpload = (e) => {
     setImage(URL.createObjectURL(e.target.files[0]));
   };
@@ -33,6 +29,10 @@ const Home = () => {
       setText(text);
       setLoading(false);
     });
+  };
+
+  const resetWebsite = () => {
+    window.location.reload();
   };
 
   return (
@@ -72,7 +72,7 @@ const Home = () => {
           text && (
             <div className={toggle ? 'hidden' : 'block'}>
               <div className='selected-div w-full h-screen absolute top-0 left-0 flex items-center justify-center px-2'>
-                <CiCircleRemove onClick={toggleDiv} className='text-5xl py-2 px-2 text-white absolute top-[10px] right-[10px] cursor-pointer bg-purple-500 rounded-md hover:opacity-80' />
+                <CiCircleRemove onClick={resetWebsite} className='text-5xl py-2 px-2 text-white absolute top-[10px] right-[10px] cursor-pointer bg-purple-500 rounded-md hover:opacity-80' />
                 <div>
                   <h1 className='text-white font-bold text-2xl'>{text.slice(0, 50)}...</h1>
                   <button
